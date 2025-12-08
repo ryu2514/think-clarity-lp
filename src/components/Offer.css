@@ -1,0 +1,283 @@
+.offer-section {
+    background: radial-gradient(circle at center, #F0FDFA 0%, #ffffff 100%);
+}
+
+.offer-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.offer-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.offer-badge {
+    background-color: var(--color-accent);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-weight: 700;
+    font-size: 0.875rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.offer-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--color-text-main);
+    margin-bottom: 0.5rem;
+}
+
+.offer-subtitle {
+    color: var(--color-text-sub);
+    font-size: 1.125rem;
+}
+
+.pricing-card {
+    background: white;
+    border-radius: 1.5rem;
+    padding: 3rem 2rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border: 1px solid var(--color-bg-sub);
+    position: relative;
+    overflow: hidden;
+}
+
+.pricing-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+}
+
+.price-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid var(--color-bg-sub);
+    padding-bottom: 2rem;
+}
+
+.regular-price {
+    color: var(--color-text-light);
+    text-decoration: line-through;
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+}
+
+.special-price-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.discount-tag {
+    background-color: #FEF3C7;
+    /* Amber 100 */
+    color: var(--color-accent-hover);
+    font-weight: 800;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+}
+
+.special-price {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--color-text-main);
+    line-height: 1;
+}
+
+.currency {
+    font-size: 1.5rem;
+    vertical-align: top;
+    margin-right: 0.25rem;
+}
+
+.tax {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-text-sub);
+}
+
+.payment-note {
+    font-size: 0.875rem;
+    color: var(--color-text-sub);
+    margin-top: 0.5rem;
+}
+
+.price-benefits {
+    margin-bottom: 3rem;
+    background-color: var(--color-bg-sub);
+    padding: 1.5rem;
+    border-radius: 1rem;
+}
+
+.benefits-title {
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: var(--color-text-main);
+}
+
+.benefits-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.benefits-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--color-text-main);
+    font-weight: 500;
+}
+
+.check-icon {
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+.cta-wrapper {
+    text-align: center;
+}
+
+.btn-large {
+    width: 100%;
+    padding: 1.25rem;
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+}
+
+.btn-glow {
+    box-shadow: 0 0 15px rgba(15, 118, 110, 0.5);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(15, 118, 110, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(15, 118, 110, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(15, 118, 110, 0);
+    }
+}
+
+.cta-note {
+    font-size: 0.875rem;
+    color: var(--color-text-sub);
+    line-height: 1.5;
+}
+
+/* Plan Selector Styles */
+.plan-selector {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 640px) {
+    .plan-selector {
+        grid-template-columns: 1fr;
+    }
+}
+
+.plan-option {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.25rem 1rem;
+    border: 2px solid var(--color-bg-sub);
+    border-radius: 1rem;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.plan-option:hover {
+    border-color: var(--color-primary-light);
+    background-color: var(--color-bg-alt);
+}
+
+.plan-option.active {
+    border-color: var(--color-primary);
+    background-color: var(--color-bg-alt);
+    box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.15);
+}
+
+.plan-badge {
+    position: absolute;
+    top: -0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-accent);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 9999px;
+    white-space: nowrap;
+}
+
+.plan-name {
+    font-weight: 600;
+    color: var(--color-text-main);
+    margin-bottom: 0.5rem;
+}
+
+.plan-price {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--color-primary);
+}
+
+.plan-per-month {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-sub);
+}
+
+/* Selected Plan Display */
+.selected-plan-display {
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-bg-sub);
+}
+
+.per-month {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--color-text-sub);
+}
+
+.total-note {
+    font-size: 0.9rem;
+    color: var(--color-text-sub);
+    margin-top: 0.5rem;
+}
+
+.cta-urgency {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+    color: #92400E;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 0.5rem;
+    border: 1px solid #F59E0B;
+}

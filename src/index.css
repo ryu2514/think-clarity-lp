@@ -1,0 +1,112 @@
+:root {
+  /* Colors */
+  --color-primary: #0F766E; /* Teal 700 */
+  --color-primary-dark: #115E59; /* Teal 800 */
+  --color-primary-light: #14B8A6; /* Teal 500 */
+  
+  --color-secondary: #0369A1; /* Sky 700 */
+  --color-secondary-light: #0EA5E9; /* Sky 500 */
+
+  --color-accent: #F59E0B; /* Amber 500 */
+  --color-accent-hover: #D97706; /* Amber 600 */
+
+  --color-text-main: #1F2937; /* Gray 800 */
+  --color-text-sub: #4B5563; /* Gray 600 */
+  --color-text-light: #9CA3AF; /* Gray 400 */
+  
+  --color-bg-main: #FFFFFF;
+  --color-bg-sub: #F3F4F6; /* Gray 100 */
+  --color-bg-alt: #F0FDFA; /* Teal 50 */
+
+  /* Typography */
+  --font-sans: 'Inter', 'Noto Sans JP', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text-main);
+  background-color: var(--color-bg-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Utilities */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.text-center { text-align: center; }
+.font-bold { font-weight: 700; }
+.text-primary { color: var(--color-primary); }
+.text-sm { font-size: 0.875rem; }
+.text-lg { font-size: 1.125rem; }
+.text-xl { font-size: 1.25rem; }
+.text-2xl { font-size: 1.5rem; }
+.text-3xl { font-size: 1.875rem; }
+.text-4xl { font-size: 2.25rem; }
+
+.section-padding {
+  padding: 5rem 0;
+}
+
+/* Button Styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: white;
+  box-shadow: 0 4px 6px -1px rgba(15, 118, 110, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(15, 118, 110, 0.4);
+}
+
+.btn-secondary {
+  background-color: var(--color-bg-main);
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-bg-alt);
+}

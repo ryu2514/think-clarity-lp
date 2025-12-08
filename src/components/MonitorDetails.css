@@ -1,0 +1,58 @@
+.monitor-details-section {
+    background-color: white;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .details-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.detail-card {
+    text-align: center;
+    padding: 2rem;
+    background: var(--color-bg-sub);
+    border-radius: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.detail-card:hover {
+    transform: translateY(-5px);
+}
+
+.detail-icon-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    background-color: white;
+    color: var(--color-primary);
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.detail-icon-box svg {
+    width: 2rem;
+    height: 2rem;
+}
+
+.detail-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--color-text-main);
+}
+
+.detail-text {
+    color: var(--color-text-sub);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}

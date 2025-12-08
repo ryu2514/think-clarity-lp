@@ -1,0 +1,101 @@
+.solution-section {
+    background-color: white;
+}
+
+.section-tag {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+.solution-diagram {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.diagram-step {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--color-bg-sub);
+    position: relative;
+}
+
+.center-pin {
+    border-top: 4px solid var(--color-primary);
+    background: linear-gradient(to bottom, #F0FDFA, white);
+}
+
+.step-icon {
+    margin: 0 auto 1rem;
+    width: 4rem;
+    height: 4rem;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.step-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--color-text-main);
+}
+
+.step-desc {
+    color: var(--color-text-sub);
+    font-size: 0.95rem;
+}
+
+.diagram-arrow {
+    color: var(--color-text-light);
+    margin: 1rem 0;
+    width: 2rem;
+    height: 2rem;
+    opacity: 0.5;
+}
+
+.abilities-grid {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+    .abilities-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.ability-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--color-bg-sub);
+    border-radius: 0.5rem;
+    font-weight: 600;
+    color: var(--color-text-main);
+    font-size: 0.9rem;
+}
+
+.ability-num {
+    font-size: 0.75rem;
+    color: var(--color-primary);
+    margin-bottom: 0.25rem;
+    font-weight: 800;
+}
