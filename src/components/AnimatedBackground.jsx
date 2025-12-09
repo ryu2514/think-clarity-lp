@@ -3,13 +3,13 @@ import { motion } from 'framer-motion';
 import './AnimatedBackground.css';
 
 const AnimatedBackground = () => {
-    // ランダムなノード位置を生成（20個に増加）
+    // ロゴ周辺（中央30%エリア）にノードを集中配置
     const nodes = Array.from({ length: 20 }, (_, i) => ({
         id: i,
-        x: Math.random() * 100,
-        y: Math.random() * 100,
-        delay: Math.random() * 1,
-        duration: 2 + Math.random() * 1.5
+        x: 35 + Math.random() * 30, // 35-65%の範囲（中央30%）
+        y: 20 + Math.random() * 30, // 20-50%の範囲（上部寄り）
+        delay: Math.random() * 0.5,
+        duration: 0.8 + Math.random() * 0.7 // 高速化：0.8-1.5秒
     }));
 
     return (
@@ -51,7 +51,7 @@ const AnimatedBackground = () => {
                 }}
             />
 
-            {/* 動くノード（より速く、広範囲に） */}
+            {/* 動くノード（高速、狭い範囲） */}
             {nodes.map(node => (
                 <motion.div
                     key={node.id}
@@ -61,16 +61,16 @@ const AnimatedBackground = () => {
                         top: `${node.y}%`
                     }}
                     animate={{
-                        x: [0, Math.random() * 40 - 20, Math.random() * 30 - 15, 0],
-                        y: [0, Math.random() * 40 - 20, Math.random() * 30 - 15, 0],
-                        opacity: [0.4, 0.8, 0.5, 0.4],
-                        scale: [1, 1.2, 0.9, 1]
+                        x: [0, Math.random() * 20 - 10, Math.random() * 15 - 7.5, 0],
+                        y: [0, Math.random() * 20 - 10, Math.random() * 15 - 7.5, 0],
+                        opacity: [0.5, 0.9, 0.6, 0.5],
+                        scale: [1, 1.3, 0.8, 1]
                     }}
                     transition={{
                         duration: node.duration,
                         delay: node.delay,
                         repeat: Infinity,
-                        ease: "easeInOut"
+                        ease: "linear" // 高速感を出すためlinearに変更
                     }}
                 />
             ))}
@@ -96,14 +96,14 @@ const AnimatedBackground = () => {
                             stroke="url(#lineGradient)"
                             strokeWidth="1.5"
                             initial={{ pathLength: 0, opacity: 0 }}
-                            animate={{ pathLength: 1, opacity: [0.3, 0.7, 0.3] }}
+                            animate={{ pathLength: 1, opacity: [0.2, 0.6, 0.2] }}
                             transition={{
-                                pathLength: { duration: 1.5, delay: i * 0.1 },
+                                pathLength: { duration: 0.8, delay: i * 0.05 },
                                 opacity: {
-                                    duration: 2,
-                                    delay: i * 0.15,
+                                    duration: 1.2,
+                                    delay: i * 0.08,
                                     repeat: Infinity,
-                                    ease: "easeInOut"
+                                    ease: "linear" // 高速感のためlinear
                                 }
                             }}
                         />
