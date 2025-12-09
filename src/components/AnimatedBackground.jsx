@@ -3,15 +3,15 @@ import { motion } from 'framer-motion';
 import './AnimatedBackground.css';
 
 const AnimatedBackground = () => {
-    // SVGパス用のランダムな曲線を生成
+    // SVGパス用のランダムな曲線を生成（パーセンテージベース）
     const generateRandomCurve = (startX, startY) => {
         const points = [];
         let currentX = startX;
         let currentY = startY;
 
         for (let i = 0; i < 4; i++) {
-            const nextX = currentX + (Math.random() - 0.5) * 120;
-            const nextY = currentY + (Math.random() - 0.5) * 120;
+            const nextX = currentX + (Math.random() - 0.5) * 20;
+            const nextY = currentY + (Math.random() - 0.5) * 20;
             points.push({ x: nextX, y: nextY });
             currentX = nextX;
             currentY = nextY;
@@ -42,11 +42,11 @@ const AnimatedBackground = () => {
     const nodes = [
         {
             id: 0,
-            startX: '20%',
-            startY: '30%',
+            startX: '30%',
+            startY: '35%',
             delay: 0,
             duration: 3,
-            curve: generateRandomCurve(20, 30),
+            curve: generateRandomCurve(30, 35),
             color: 'rgba(20, 184, 166, 0.5)'
         },
         {
@@ -60,11 +60,11 @@ const AnimatedBackground = () => {
         },
         {
             id: 2,
-            startX: '75%',
-            startY: '35%',
+            startX: '70%',
+            startY: '40%',
             delay: 2,
             duration: 3.2,
-            curve: generateRandomCurve(75, 35),
+            curve: generateRandomCurve(70, 40),
             color: 'rgba(15, 118, 110, 0.45)'
         }
     ].map(node => ({
