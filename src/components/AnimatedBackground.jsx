@@ -3,42 +3,74 @@ import { motion } from 'framer-motion';
 import './AnimatedBackground.css';
 
 const AnimatedBackground = () => {
-    // ランダムな移動パスを生成
-    const generateRandomPath = () => {
-        const points = 5;
-        return Array.from({ length: points }, () => ({
-            x: (Math.random() - 0.5) * 80, // -40 to 40
-            y: (Math.random() - 0.5) * 80  // -40 to 40
-        }));
+    // SVGパス用のランダムな曲線を生成
+    const generateRandomCurve = (startX, startY) => {
+        const points = [];
+        let currentX = startX;
+        let currentY = startY;
+
+        for (let i = 0; i < 4; i++) {
+            const nextX = currentX + (Math.random() - 0.5) * 60;
+            const nextY = currentY + (Math.random() - 0.5) * 60;
+            points.push({ x: nextX, y: nextY });
+            currentX = nextX;
+            currentY = nextY;
+        }
+
+        // 最後は開始点に戻る
+        points.push({ x: startX, y: startY });
+        return points;
     };
 
-    // ロゴ内に3つのノードを配置（各々ランダムな動きパス）
+    // パス上の座標を計算
+    const generatePathPoints = (curve, numPoints = 50) => {
+        const points = [];
+        for (let i = 0; i <= numPoints; i++) {
+            const t = i / numPoints;
+            const index = Math.floor(t * (curve.length - 1));
+            const nextIndex = Math.min(index + 1, curve.length - 1);
+            const localT = (t * (curve.length - 1)) % 1;
+
+            const x = curve[index].x + (curve[nextIndex].x - curve[index].x) * localT;
+            const y = curve[index].y + (curve[nextIndex].y - curve[index].y) * localT;
+            points.push({ x, y });
+        }
+        return points;
+    };
+
+    // ロゴ内に3つのノードとパスを配置
     const nodes = [
         {
             id: 0,
-            x: 20,
-            y: 30,
+            startX: 20,
+            startY: 30,
             delay: 0,
-            duration: 0.5,
-            path: generateRandomPath()
+            duration: 3,
+            curve: generateRandomCurve(20, 30),
+            color: 'rgba(20, 184, 166, 0.5)'
         },
         {
             id: 1,
-            x: 50,
-            y: 50,
-            delay: 0.15,
-            duration: 0.6,
-            path: generateRandomPath()
+            startX: 50,
+            startY: 50,
+            delay: 1,
+            duration: 3.5,
+            curve: generateRandomCurve(50, 50),
+            color: 'rgba(14, 165, 233, 0.4)'
         },
         {
             id: 2,
-            x: 75,
-            y: 35,
-            delay: 0.3,
-            duration: 0.55,
-            path: generateRandomPath()
+            startX: 75,
+            startY: 35,
+            delay: 2,
+            duration: 3.2,
+            curve: generateRandomCurve(75, 35),
+            color: 'rgba(15, 118, 110, 0.45)'
         }
-    ];
+    ].map(node => ({
+        ...node,
+        pathPoints: generatePathPoints(node.curve)
+    }));
 
     return (
         <div className="animated-background">
@@ -79,24 +111,49 @@ const AnimatedBackground = () => {
                 }}
             />
 
-            {/* 動くノード（3つ、ランダムな多方向の動き） */}
+            {/* SVG パスライン */}
+            <svg className="path-lines" width="100%" height="100%">
+                {nodes.map(node => {
+                    const pathD = `M ${node.startX} ${node.startY} ` +
+                        node.curve.map(p => `L ${p.x} ${p.y}`).join(' ');
+
+                    return (
+                        <motion.path
+                            key={`path-${node.id}`}
+                            d={pathD}
+                            fill="none"
+                            stroke={node.color}
+                            strokeWidth="2"
+                            initial={{ pathLength: 0, opacity: 0 }}
+                            animate={{ pathLength: 1, opacity: 1 }}
+                            transition={{
+                                pathLength: { duration: 1.5, delay: node.delay },
+                                opacity: { duration: 0.5, delay: node.delay }
+                            }}
+                        />
+                    );
+                })}
+            </svg>
+
+            {/* 動くノード（パス上を移動） */}
             {nodes.map(node => {
-                const xPath = [0, ...node.path.map(p => p.x), 0];
-                const yPath = [0, ...node.path.map(p => p.y), 0];
+                const xPath = node.pathPoints.map(p => p.x);
+                const yPath = node.pathPoints.map(p => p.y);
 
                 return (
                     <motion.div
-                        key={node.id}
+                        key={`node-${node.id}`}
                         className="network-node"
                         style={{
-                            left: `${node.x}%`,
-                            top: `${node.y}%`
+                            position: 'absolute',
+                            left: 0,
+                            top: 0
                         }}
                         animate={{
                             x: xPath,
                             y: yPath,
-                            opacity: [0.6, 1, 0.7, 0.9, 0.8, 0.6],
-                            scale: [1, 1.8, 0.6, 1.5, 1.2, 1]
+                            opacity: [0.6, 1, 0.8, 0.9, 0.7, 0.6],
+                            scale: [1, 1.5, 1.2, 1.8, 1.3, 1]
                         }}
                         transition={{
                             duration: node.duration,
@@ -108,41 +165,6 @@ const AnimatedBackground = () => {
                 );
             })}
 
-            {/* 接続ライン（SVG） */}
-            <svg className="network-lines" width="100%" height="100%">
-                <defs>
-                    <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor="#0F766E" stopOpacity="0.1" />
-                        <stop offset="50%" stopColor="#14B8A6" stopOpacity="0.3" />
-                        <stop offset="100%" stopColor="#0F766E" stopOpacity="0.1" />
-                    </linearGradient>
-                </defs>
-                {nodes.map((node, i) => {
-                    const nextNode = nodes[(i + 1) % nodes.length];
-                    return (
-                        <motion.line
-                            key={`line-${i}`}
-                            x1={`${node.x}%`}
-                            y1={`${node.y}%`}
-                            x2={`${nextNode.x}%`}
-                            y2={`${nextNode.y}%`}
-                            stroke="url(#lineGradient)"
-                            strokeWidth="2"
-                            initial={{ pathLength: 0, opacity: 0 }}
-                            animate={{ pathLength: 1, opacity: [0.3, 0.8, 0.3] }}
-                            transition={{
-                                pathLength: { duration: 0.5, delay: i * 0.1 },
-                                opacity: {
-                                    duration: 0.6,
-                                    delay: i * 0.15,
-                                    repeat: Infinity,
-                                    ease: "linear"
-                                }
-                            }}
-                        />
-                    );
-                })}
-            </svg>
         </div>
     );
 };
