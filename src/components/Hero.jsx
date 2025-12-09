@@ -20,7 +20,7 @@ const Hero = () => {
                     transition={{ duration: 0.8 }}
                 >
                     <motion.img
-                        src="/images/logo.png"
+                        src="/images/logo-transparent.png"
                         alt="Think Clarity Logo"
                         className="hero-logo"
                         initial={{ opacity: 0, scale: 0.8 }}
