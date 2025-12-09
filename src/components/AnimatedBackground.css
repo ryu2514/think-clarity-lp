@@ -7,7 +7,6 @@
     overflow: hidden;
     pointer-events: none;
     z-index: 1;
-    border-radius: 50%;
 }
 
 /* 中央から広がる円形グラデーション */
