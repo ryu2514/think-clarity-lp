@@ -3,89 +3,119 @@ import { motion } from 'framer-motion';
 import './AnimatedBackground.css';
 
 const AnimatedBackground = () => {
-    // アニメーション3: 思考の流れを示すフローライン
-    const flowLines = Array.from({ length: 8 }, (_, i) => {
-        const angle = (i / 8) * Math.PI * 2;
-        const startDistance = 15;
-        const endDistance = 40;
+    // アニメーション4: ニューロン発火アニメーション
+    // ロゴの脳ネットワーク構造をシミュレート
+    const neurons = [
+        { id: 1, x: 45, y: 25, connections: [2, 3] },
+        { id: 2, x: 50, y: 22, connections: [4, 5] },
+        { id: 3, x: 48, y: 28, connections: [5, 6] },
+        { id: 4, x: 55, y: 24, connections: [7] },
+        { id: 5, x: 52, y: 30, connections: [8] },
+        { id: 6, x: 46, y: 33, connections: [8] },
+        { id: 7, x: 58, y: 27, connections: [8] },
+        { id: 8, x: 50, y: 35, connections: [] }
+    ];
 
-        return {
-            id: i,
-            x1: 50 + Math.cos(angle) * startDistance,
-            y1: 30 + Math.sin(angle) * startDistance,
-            x2: 50 + Math.cos(angle) * endDistance,
-            y2: 30 + Math.sin(angle) * endDistance,
-            delay: i * 0.15
-        };
+    // ニューロン間の接続線を生成
+    const connections = [];
+    neurons.forEach((neuron) => {
+        neuron.connections.forEach((targetId) => {
+            const target = neurons.find(n => n.id === targetId);
+            if (target) {
+                connections.push({
+                    from: neuron,
+                    to: target,
+                    id: `${neuron.id}-${targetId}`
+                });
+            }
+        });
     });
 
     return (
         <div className="animated-background">
-            {/* SVGでフローラインを描画 */}
-            <svg className="flow-animation" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
-                {/* 中心の核 */}
-                <motion.circle
-                    cx="50"
-                    cy="30"
-                    r="2"
-                    fill="rgba(20, 184, 166, 0.8)"
-                    filter="url(#core-glow)"
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{
-                        opacity: [0, 1, 1],
-                        scale: [0, 1.2, 1]
-                    }}
-                    transition={{
-                        duration: 1,
-                        ease: "easeOut"
-                    }}
-                />
+            {/* SVGでニューロンネットワークを描画 */}
+            <svg className="neuron-animation" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+                {/* 接続線（常に表示） */}
+                {connections.map((conn, i) => (
+                    <motion.line
+                        key={`conn-${conn.id}`}
+                        x1={conn.from.x}
+                        y1={conn.from.y}
+                        x2={conn.to.x}
+                        y2={conn.to.y}
+                        stroke="rgba(20, 184, 166, 0.2)"
+                        strokeWidth="0.2"
+                        vectorEffect="non-scaling-stroke"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 0.4 }}
+                        transition={{
+                            duration: 0.5,
+                            delay: i * 0.05
+                        }}
+                    />
+                ))}
 
-                {/* 放射状のフローライン */}
-                {flowLines.map((line) => (
-                    <g key={`flow-${line.id}`}>
-                        {/* ライン本体 */}
-                        <motion.line
-                            x1={line.x1}
-                            y1={line.y1}
-                            x2={line.x2}
-                            y2={line.y2}
-                            stroke="rgba(20, 184, 166, 0.3)"
-                            strokeWidth="0.3"
-                            vectorEffect="non-scaling-stroke"
-                            initial={{ pathLength: 0, opacity: 0 }}
-                            animate={{
-                                pathLength: 1,
-                                opacity: [0, 0.6, 0.6]
-                            }}
+                {/* 発火する信号パルス */}
+                {connections.map((conn, i) => (
+                    <motion.line
+                        key={`pulse-${conn.id}`}
+                        x1={conn.from.x}
+                        y1={conn.from.y}
+                        x2={conn.to.x}
+                        y2={conn.to.y}
+                        stroke="rgba(20, 184, 166, 1)"
+                        strokeWidth="0.4"
+                        vectorEffect="non-scaling-stroke"
+                        initial={{ pathLength: 0, opacity: 0 }}
+                        animate={{
+                            pathLength: [0, 1],
+                            opacity: [0, 1, 0]
+                        }}
+                        transition={{
+                            duration: 0.6,
+                            delay: 1 + i * 0.1,
+                            repeat: Infinity,
+                            repeatDelay: 2,
+                            ease: "easeInOut"
+                        }}
+                    />
+                ))}
+
+                {/* ニューロンノード */}
+                {neurons.map((neuron, i) => (
+                    <g key={`neuron-${neuron.id}`}>
+                        {/* ノード本体 */}
+                        <motion.circle
+                            cx={neuron.x}
+                            cy={neuron.y}
+                            r="0.8"
+                            fill="rgba(20, 184, 166, 0.6)"
+                            initial={{ opacity: 0, scale: 0 }}
+                            animate={{ opacity: 1, scale: 1 }}
                             transition={{
-                                duration: 1.5,
-                                delay: 0.5 + line.delay,
-                                ease: "easeOut"
+                                duration: 0.3,
+                                delay: i * 0.08
                             }}
                         />
 
-                        {/* 流れる光のドット */}
+                        {/* 発火エフェクト */}
                         <motion.circle
-                            r="0.5"
-                            fill="rgba(20, 184, 166, 1)"
-                            filter="url(#flow-glow)"
-                            initial={{
-                                cx: line.x1,
-                                cy: line.y1,
-                                opacity: 0
-                            }}
+                            cx={neuron.x}
+                            cy={neuron.y}
+                            r="1.5"
+                            fill="rgba(20, 184, 166, 0.3)"
+                            filter="url(#neuron-glow)"
+                            initial={{ opacity: 0, scale: 0.5 }}
                             animate={{
-                                cx: [line.x1, line.x2, line.x2],
-                                cy: [line.y1, line.y2, line.y2],
-                                opacity: [0, 1, 0]
+                                opacity: [0, 0.8, 0],
+                                scale: [0.5, 2, 2.5]
                             }}
                             transition={{
-                                duration: 2,
-                                delay: 1 + line.delay,
+                                duration: 0.8,
+                                delay: 1 + i * 0.1,
                                 repeat: Infinity,
-                                repeatDelay: 1,
-                                ease: "easeInOut"
+                                repeatDelay: 2,
+                                ease: "easeOut"
                             }}
                         />
                     </g>
@@ -93,15 +123,8 @@ const AnimatedBackground = () => {
 
                 {/* グロー効果 */}
                 <defs>
-                    <filter id="core-glow">
+                    <filter id="neuron-glow">
                         <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-                        <feMerge>
-                            <feMergeNode in="coloredBlur"/>
-                            <feMergeNode in="SourceGraphic"/>
-                        </feMerge>
-                    </filter>
-                    <filter id="flow-glow">
-                        <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
                         <feMerge>
                             <feMergeNode in="coloredBlur"/>
                             <feMergeNode in="SourceGraphic"/>
