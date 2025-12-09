@@ -62,7 +62,7 @@ const Hero = () => {
                             ease: [0.25, 0.1, 0.25, 1]
                         }}
                     >
-                        臨床推論を <br className="hidden-mobile" />
+                        臨床推論を<br />
                         <span className="text-gradient">
                             構造化する
                         </span>
