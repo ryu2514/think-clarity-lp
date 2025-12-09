@@ -3,14 +3,12 @@ import { motion } from 'framer-motion';
 import './AnimatedBackground.css';
 
 const AnimatedBackground = () => {
-    // ロゴ全体にノードを配置
-    const nodes = Array.from({ length: 20 }, (_, i) => ({
-        id: i,
-        x: 10 + Math.random() * 80, // 10-90%の範囲
-        y: 10 + Math.random() * 80, // 10-90%の範囲
-        delay: Math.random() * 0.5,
-        duration: 0.8 + Math.random() * 0.7 // 高速化：0.8-1.5秒
-    }));
+    // ロゴ内に3つのノードを配置
+    const nodes = [
+        { id: 0, x: 20, y: 30, delay: 0, duration: 0.5 },
+        { id: 1, x: 50, y: 50, delay: 0.15, duration: 0.6 },
+        { id: 2, x: 75, y: 35, delay: 0.3, duration: 0.55 }
+    ];
 
     return (
         <div className="animated-background">
@@ -51,7 +49,7 @@ const AnimatedBackground = () => {
                 }}
             />
 
-            {/* 動くノード（高速、ロゴ内） */}
+            {/* 動くノード（3つ、大きく速い動き） */}
             {nodes.map(node => (
                 <motion.div
                     key={node.id}
@@ -61,16 +59,16 @@ const AnimatedBackground = () => {
                         top: `${node.y}%`
                     }}
                     animate={{
-                        x: [0, Math.random() * 15 - 7.5, Math.random() * 10 - 5, 0],
-                        y: [0, Math.random() * 15 - 7.5, Math.random() * 10 - 5, 0],
-                        opacity: [0.5, 0.9, 0.6, 0.5],
-                        scale: [1, 1.4, 0.7, 1]
+                        x: [0, 40, -30, 25, 0],
+                        y: [0, -35, 40, -25, 0],
+                        opacity: [0.6, 1, 0.7, 0.9, 0.6],
+                        scale: [1, 1.8, 0.6, 1.5, 1]
                     }}
                     transition={{
                         duration: node.duration,
                         delay: node.delay,
                         repeat: Infinity,
-                        ease: "linear" // 高速感を出すためlinearに変更
+                        ease: "linear"
                     }}
                 />
             ))}
@@ -84,8 +82,8 @@ const AnimatedBackground = () => {
                         <stop offset="100%" stopColor="#0F766E" stopOpacity="0.1" />
                     </linearGradient>
                 </defs>
-                {nodes.slice(0, 15).map((node, i) => {
-                    const nextNode = nodes[(i + 2) % nodes.length];
+                {nodes.map((node, i) => {
+                    const nextNode = nodes[(i + 1) % nodes.length];
                     return (
                         <motion.line
                             key={`line-${i}`}
@@ -94,16 +92,16 @@ const AnimatedBackground = () => {
                             x2={`${nextNode.x}%`}
                             y2={`${nextNode.y}%`}
                             stroke="url(#lineGradient)"
-                            strokeWidth="1.5"
+                            strokeWidth="2"
                             initial={{ pathLength: 0, opacity: 0 }}
-                            animate={{ pathLength: 1, opacity: [0.2, 0.6, 0.2] }}
+                            animate={{ pathLength: 1, opacity: [0.3, 0.8, 0.3] }}
                             transition={{
-                                pathLength: { duration: 0.8, delay: i * 0.05 },
+                                pathLength: { duration: 0.5, delay: i * 0.1 },
                                 opacity: {
-                                    duration: 1.2,
-                                    delay: i * 0.08,
+                                    duration: 0.6,
+                                    delay: i * 0.15,
                                     repeat: Infinity,
-                                    ease: "linear" // 高速感のためlinear
+                                    ease: "linear"
                                 }
                             }}
                         />
