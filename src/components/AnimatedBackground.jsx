@@ -10,8 +10,8 @@ const AnimatedBackground = () => {
         let currentY = startY;
 
         for (let i = 0; i < 4; i++) {
-            const nextX = currentX + (Math.random() - 0.5) * 60;
-            const nextY = currentY + (Math.random() - 0.5) * 60;
+            const nextX = currentX + (Math.random() - 0.5) * 120;
+            const nextY = currentY + (Math.random() - 0.5) * 120;
             points.push({ x: nextX, y: nextY });
             currentX = nextX;
             currentY = nextY;
