@@ -7,6 +7,7 @@
     overflow: hidden;
     pointer-events: none;
     z-index: 1;
+    border-radius: 50%;
 }
 
 /* 中央から広がる円形グラデーション */
@@ -15,8 +16,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 300px;
-    height: 300px;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
     background: radial-gradient(
         circle,
@@ -56,8 +57,8 @@
 /* 動くノード（より明るく、大きく） */
 .network-node {
     position: absolute;
-    width: 10px;
-    height: 10px;
+    width: 6px;
+    height: 6px;
     background: radial-gradient(
         circle,
         rgba(20, 184, 166, 1) 0%,
@@ -65,8 +66,8 @@
         transparent 100%
     );
     border-radius: 50%;
-    box-shadow: 0 0 15px rgba(20, 184, 166, 0.8),
-                0 0 25px rgba(20, 184, 166, 0.4);
+    box-shadow: 0 0 10px rgba(20, 184, 166, 0.8),
+                0 0 20px rgba(20, 184, 166, 0.4);
 }
 
 /* SVG ライン */
@@ -77,31 +78,4 @@
     width: 100%;
     height: 100%;
     pointer-events: none;
-}
-
-/* レスポンシブ対応 */
-@media (min-width: 768px) {
-    .ripple-circle {
-        width: 500px;
-        height: 500px;
-    }
-
-    .network-node {
-        width: 12px;
-        height: 12px;
-    }
-}
-
-@media (min-width: 1024px) {
-    .ripple-circle {
-        width: 700px;
-        height: 700px;
-    }
-
-    .network-node {
-        width: 14px;
-        height: 14px;
-        box-shadow: 0 0 20px rgba(20, 184, 166, 0.9),
-                    0 0 35px rgba(20, 184, 166, 0.5);
-    }
 }

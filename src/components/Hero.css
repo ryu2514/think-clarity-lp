@@ -50,17 +50,26 @@
     text-align: center;
 }
 
-.hero-logo {
+.logo-container {
+    position: relative;
     width: 200px;
-    height: auto;
+    height: 200px;
     margin: 0 auto 2rem;
-    display: block;
 }
 
 @media (min-width: 768px) {
-    .hero-logo {
+    .logo-container {
         width: 280px;
+        height: 280px;
     }
+}
+
+.hero-logo {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: block;
+    z-index: 2;
 }
 
 .hero-badge {

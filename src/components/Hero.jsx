@@ -9,7 +9,6 @@ const Hero = () => {
         <section className="hero-section">
             {/* Background Decor */}
             <div className="hero-bg-decor">
-                <AnimatedBackground />
                 <div className="decor-blob decor-blob-1" />
                 <div className="decor-blob decor-blob-2" />
             </div>
@@ -21,26 +20,29 @@ const Hero = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <motion.img
-                        src="/images/logo-transparent.png"
-                        alt="Think Clarity Logo"
-                        className="hero-logo"
-                        initial={{
-                            opacity: 0.3,
-                            scale: 0.95,
-                            filter: 'blur(20px)'
-                        }}
-                        animate={{
-                            opacity: 1,
-                            scale: 1,
-                            filter: 'blur(0px)'
-                        }}
-                        transition={{
-                            duration: 1.5,
-                            delay: 0.2,
-                            ease: [0.25, 0.1, 0.25, 1]
-                        }}
-                    />
+                    <div className="logo-container">
+                        <AnimatedBackground />
+                        <motion.img
+                            src="/images/logo-transparent.png"
+                            alt="Think Clarity Logo"
+                            className="hero-logo"
+                            initial={{
+                                opacity: 0.3,
+                                scale: 0.95,
+                                filter: 'blur(20px)'
+                            }}
+                            animate={{
+                                opacity: 1,
+                                scale: 1,
+                                filter: 'blur(0px)'
+                            }}
+                            transition={{
+                                duration: 1.5,
+                                delay: 0.2,
+                                ease: [0.25, 0.1, 0.25, 1]
+                            }}
+                        />
+                    </div>
                     <span className="hero-badge">
                         スクール生徒限定モニター募集
                     </span>

@@ -3,22 +3,22 @@ import { motion } from 'framer-motion';
 import './AnimatedBackground.css';
 
 const AnimatedBackground = () => {
-    // ロゴ周辺（中央30%エリア）にノードを集中配置
+    // ロゴ全体にノードを配置
     const nodes = Array.from({ length: 20 }, (_, i) => ({
         id: i,
-        x: 35 + Math.random() * 30, // 35-65%の範囲（中央30%）
-        y: 20 + Math.random() * 30, // 20-50%の範囲（上部寄り）
+        x: 10 + Math.random() * 80, // 10-90%の範囲
+        y: 10 + Math.random() * 80, // 10-90%の範囲
         delay: Math.random() * 0.5,
         duration: 0.8 + Math.random() * 0.7 // 高速化：0.8-1.5秒
     }));
 
     return (
         <div className="animated-background">
-            {/* 中央から広がる円形グラデーション（より速く、頻繁に） */}
+            {/* 中央から広がる円形グラデーション（ロゴサイズに合わせて） */}
             <motion.div
                 className="ripple-circle ripple-1"
-                initial={{ scale: 0, opacity: 0.8 }}
-                animate={{ scale: 3.5, opacity: 0 }}
+                initial={{ scale: 0.5, opacity: 0.8 }}
+                animate={{ scale: 1.3, opacity: 0 }}
                 transition={{
                     duration: 2,
                     repeat: Infinity,
@@ -28,8 +28,8 @@ const AnimatedBackground = () => {
             />
             <motion.div
                 className="ripple-circle ripple-2"
-                initial={{ scale: 0, opacity: 0.6 }}
-                animate={{ scale: 3.5, opacity: 0 }}
+                initial={{ scale: 0.5, opacity: 0.6 }}
+                animate={{ scale: 1.3, opacity: 0 }}
                 transition={{
                     duration: 2,
                     delay: 0.5,
@@ -40,8 +40,8 @@ const AnimatedBackground = () => {
             />
             <motion.div
                 className="ripple-circle ripple-3"
-                initial={{ scale: 0, opacity: 0.4 }}
-                animate={{ scale: 3.5, opacity: 0 }}
+                initial={{ scale: 0.5, opacity: 0.4 }}
+                animate={{ scale: 1.3, opacity: 0 }}
                 transition={{
                     duration: 2,
                     delay: 1,
@@ -51,7 +51,7 @@ const AnimatedBackground = () => {
                 }}
             />
 
-            {/* 動くノード（高速、狭い範囲） */}
+            {/* 動くノード（高速、ロゴ内） */}
             {nodes.map(node => (
                 <motion.div
                     key={node.id}
@@ -61,10 +61,10 @@ const AnimatedBackground = () => {
                         top: `${node.y}%`
                     }}
                     animate={{
-                        x: [0, Math.random() * 20 - 10, Math.random() * 15 - 7.5, 0],
-                        y: [0, Math.random() * 20 - 10, Math.random() * 15 - 7.5, 0],
+                        x: [0, Math.random() * 15 - 7.5, Math.random() * 10 - 5, 0],
+                        y: [0, Math.random() * 15 - 7.5, Math.random() * 10 - 5, 0],
                         opacity: [0.5, 0.9, 0.6, 0.5],
-                        scale: [1, 1.3, 0.8, 1]
+                        scale: [1, 1.4, 0.7, 1]
                     }}
                     transition={{
                         duration: node.duration,
