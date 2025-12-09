@@ -9,6 +9,7 @@ const Hero = () => {
         <section className="hero-section">
             {/* Background Decor */}
             <div className="hero-bg-decor">
+                <AnimatedBackground />
                 <div className="decor-blob decor-blob-1" />
                 <div className="decor-blob decor-blob-2" />
             </div>
@@ -21,7 +22,6 @@ const Hero = () => {
                     transition={{ duration: 0.8 }}
                 >
                     <div className="logo-container">
-                        <AnimatedBackground />
                         <motion.img
                             src="/images/logo-transparent.png"
                             alt="Think Clarity Logo"

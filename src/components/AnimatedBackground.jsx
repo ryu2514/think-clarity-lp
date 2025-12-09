@@ -38,12 +38,12 @@ const AnimatedBackground = () => {
         return points;
     };
 
-    // ロゴ内に3つのノードとパスを配置
+    // 画面全体に3つのノードとパスを配置
     const nodes = [
         {
             id: 0,
-            startX: 20,
-            startY: 30,
+            startX: '20%',
+            startY: '30%',
             delay: 0,
             duration: 3,
             curve: generateRandomCurve(20, 30),
@@ -51,8 +51,8 @@ const AnimatedBackground = () => {
         },
         {
             id: 1,
-            startX: 50,
-            startY: 50,
+            startX: '50%',
+            startY: '50%',
             delay: 1,
             duration: 3.5,
             curve: generateRandomCurve(50, 50),
@@ -60,8 +60,8 @@ const AnimatedBackground = () => {
         },
         {
             id: 2,
-            startX: 75,
-            startY: 35,
+            startX: '75%',
+            startY: '35%',
             delay: 2,
             duration: 3.2,
             curve: generateRandomCurve(75, 35),
@@ -112,10 +112,10 @@ const AnimatedBackground = () => {
             />
 
             {/* SVG パスライン */}
-            <svg className="path-lines" width="100%" height="100%">
+            <svg className="path-lines" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
                 {nodes.map(node => {
-                    const pathD = `M ${node.startX} ${node.startY} ` +
-                        node.curve.map(p => `L ${p.x} ${p.y}`).join(' ');
+                    const pathD = `M ${node.curve[0].x} ${node.curve[0].y} ` +
+                        node.curve.slice(1).map(p => `L ${p.x} ${p.y}`).join(' ');
 
                     return (
                         <motion.path
@@ -123,7 +123,8 @@ const AnimatedBackground = () => {
                             d={pathD}
                             fill="none"
                             stroke={node.color}
-                            strokeWidth="2"
+                            strokeWidth="0.5"
+                            vectorEffect="non-scaling-stroke"
                             initial={{ pathLength: 0, opacity: 0 }}
                             animate={{ pathLength: 1, opacity: 1 }}
                             transition={{
@@ -137,8 +138,8 @@ const AnimatedBackground = () => {
 
             {/* 動くノード（パス上を移動） */}
             {nodes.map(node => {
-                const xPath = node.pathPoints.map(p => p.x);
-                const yPath = node.pathPoints.map(p => p.y);
+                const xPath = node.pathPoints.map(p => `${p.x}%`);
+                const yPath = node.pathPoints.map(p => `${p.y}%`);
 
                 return (
                     <motion.div
