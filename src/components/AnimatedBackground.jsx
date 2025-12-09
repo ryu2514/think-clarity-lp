@@ -111,8 +111,9 @@ const AnimatedBackground = () => {
                 }}
             />
 
-            {/* SVG パスライン */}
+            {/* SVG パスラインとノード */}
             <svg className="path-lines" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+                {/* パスライン */}
                 {nodes.map(node => {
                     const pathD = `M ${node.curve[0].x} ${node.curve[0].y} ` +
                         node.curve.slice(1).map(p => `L ${p.x} ${p.y}`).join(' ');
@@ -134,37 +135,45 @@ const AnimatedBackground = () => {
                         />
                     );
                 })}
+
+                {/* 動くノード（パス上を移動） */}
+                {nodes.map(node => {
+                    const xPath = node.pathPoints.map(p => p.x);
+                    const yPath = node.pathPoints.map(p => p.y);
+
+                    return (
+                        <motion.circle
+                            key={`node-${node.id}`}
+                            r="1.5"
+                            fill={node.color.replace('0.5', '1').replace('0.4', '1').replace('0.45', '1')}
+                            filter="url(#glow)"
+                            animate={{
+                                cx: xPath,
+                                cy: yPath,
+                                opacity: [0.6, 1, 0.8, 0.9, 0.7, 0.6],
+                                r: [1.5, 2.5, 2, 3, 2.2, 1.5]
+                            }}
+                            transition={{
+                                duration: node.duration,
+                                delay: node.delay,
+                                repeat: Infinity,
+                                ease: "linear"
+                            }}
+                        />
+                    );
+                })}
+
+                {/* グロー効果のフィルター */}
+                <defs>
+                    <filter id="glow">
+                        <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                        <feMerge>
+                            <feMergeNode in="coloredBlur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
+                </defs>
             </svg>
-
-            {/* 動くノード（パス上を移動） */}
-            {nodes.map(node => {
-                const xPath = node.pathPoints.map(p => `${p.x}%`);
-                const yPath = node.pathPoints.map(p => `${p.y}%`);
-
-                return (
-                    <motion.div
-                        key={`node-${node.id}`}
-                        className="network-node"
-                        style={{
-                            position: 'absolute',
-                            left: 0,
-                            top: 0
-                        }}
-                        animate={{
-                            x: xPath,
-                            y: yPath,
-                            opacity: [0.6, 1, 0.8, 0.9, 0.7, 0.6],
-                            scale: [1, 1.5, 1.2, 1.8, 1.3, 1]
-                        }}
-                        transition={{
-                            duration: node.duration,
-                            delay: node.delay,
-                            repeat: Infinity,
-                            ease: "linear"
-                        }}
-                    />
-                );
-            })}
 
         </div>
     );
