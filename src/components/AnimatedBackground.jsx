@@ -10,8 +10,8 @@ const AnimatedBackground = () => {
         let currentY = startY;
 
         for (let i = 0; i < 4; i++) {
-            const nextX = currentX + (Math.random() - 0.5) * 20;
-            const nextY = currentY + (Math.random() - 0.5) * 20;
+            const nextX = currentX + (Math.random() - 0.5) * 40;
+            const nextY = currentY + (Math.random() - 0.5) * 40;
             points.push({ x: nextX, y: nextY });
             currentX = nextX;
             currentY = nextY;
@@ -38,33 +38,33 @@ const AnimatedBackground = () => {
         return points;
     };
 
-    // 画面全体に3つのノードとパスを配置
+    // ロゴ周辺に3つのノードとパスを配置
     const nodes = [
         {
             id: 0,
-            startX: '30%',
-            startY: '35%',
+            startX: '45%',
+            startY: '25%',
             delay: 0,
             duration: 3,
-            curve: generateRandomCurve(30, 35),
+            curve: generateRandomCurve(45, 25),
             color: 'rgba(20, 184, 166, 0.5)'
         },
         {
             id: 1,
             startX: '50%',
-            startY: '50%',
+            startY: '30%',
             delay: 1,
             duration: 3.5,
-            curve: generateRandomCurve(50, 50),
+            curve: generateRandomCurve(50, 30),
             color: 'rgba(14, 165, 233, 0.4)'
         },
         {
             id: 2,
-            startX: '70%',
-            startY: '40%',
+            startX: '55%',
+            startY: '28%',
             delay: 2,
             duration: 3.2,
-            curve: generateRandomCurve(70, 40),
+            curve: generateRandomCurve(55, 28),
             color: 'rgba(15, 118, 110, 0.45)'
         }
     ].map(node => ({
