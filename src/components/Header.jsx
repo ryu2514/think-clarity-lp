@@ -21,7 +21,7 @@ const Header = () => {
                     <span className="header-logo-text">Think Clarity</span>
                 </div>
                 <a href="#offer" className="btn btn-primary btn-sm">
-                    無料相談会に参加
+                    無料相談会を申し込み
                 </a>
             </div>
         </header>

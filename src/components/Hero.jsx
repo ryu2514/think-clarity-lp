@@ -47,7 +47,7 @@ const Hero = () => {
 
                     <div className="hero-actions">
                         <a href="#offer" className="btn btn-primary group">
-                            無料相談会に参加する
+                            無料相談会を申し込み
                             <ArrowRight className="btn-icon group-hover-move" />
                         </a>
                         <a href="#problem" className="link-secondary">
