@@ -1,0 +1,104 @@
+.animated-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* 中央から広がる円形グラデーション */
+.ripple-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(20, 184, 166, 0.15) 0%,
+        rgba(20, 184, 166, 0.05) 50%,
+        transparent 100%
+    );
+}
+
+.ripple-1 {
+    background: radial-gradient(
+        circle,
+        rgba(20, 184, 166, 0.2) 0%,
+        rgba(20, 184, 166, 0.1) 40%,
+        transparent 70%
+    );
+}
+
+.ripple-2 {
+    background: radial-gradient(
+        circle,
+        rgba(14, 165, 233, 0.15) 0%,
+        rgba(14, 165, 233, 0.08) 40%,
+        transparent 70%
+    );
+}
+
+.ripple-3 {
+    background: radial-gradient(
+        circle,
+        rgba(15, 118, 110, 0.12) 0%,
+        rgba(15, 118, 110, 0.06) 40%,
+        transparent 70%
+    );
+}
+
+/* 動くノード */
+.network-node {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(
+        circle,
+        rgba(20, 184, 166, 0.8) 0%,
+        rgba(20, 184, 166, 0.3) 70%,
+        transparent 100%
+    );
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(20, 184, 166, 0.5);
+}
+
+/* SVG ライン */
+.network-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* レスポンシブ対応 */
+@media (min-width: 768px) {
+    .ripple-circle {
+        width: 500px;
+        height: 500px;
+    }
+
+    .network-node {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .ripple-circle {
+        width: 700px;
+        height: 700px;
+    }
+
+    .network-node {
+        width: 12px;
+        height: 12px;
+    }
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import AnimatedBackground from './AnimatedBackground';
 import './Hero.css';
 
 const Hero = () => {
@@ -8,6 +9,7 @@ const Hero = () => {
         <section className="hero-section">
             {/* Background Decor */}
             <div className="hero-bg-decor">
+                <AnimatedBackground />
                 <div className="decor-blob decor-blob-1" />
                 <div className="decor-blob decor-blob-2" />
             </div>
