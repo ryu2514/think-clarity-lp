@@ -53,19 +53,20 @@
     );
 }
 
-/* 動くノード */
+/* 動くノード（より明るく、大きく） */
 .network-node {
     position: absolute;
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
     background: radial-gradient(
         circle,
-        rgba(20, 184, 166, 0.8) 0%,
-        rgba(20, 184, 166, 0.3) 70%,
+        rgba(20, 184, 166, 1) 0%,
+        rgba(20, 184, 166, 0.5) 60%,
         transparent 100%
     );
     border-radius: 50%;
-    box-shadow: 0 0 10px rgba(20, 184, 166, 0.5);
+    box-shadow: 0 0 15px rgba(20, 184, 166, 0.8),
+                0 0 25px rgba(20, 184, 166, 0.4);
 }
 
 /* SVG ライン */
@@ -86,8 +87,8 @@
     }
 
     .network-node {
-        width: 10px;
-        height: 10px;
+        width: 12px;
+        height: 12px;
     }
 }
 
@@ -98,7 +99,9 @@
     }
 
     .network-node {
-        width: 12px;
-        height: 12px;
+        width: 14px;
+        height: 14px;
+        box-shadow: 0 0 20px rgba(20, 184, 166, 0.9),
+                    0 0 35px rgba(20, 184, 166, 0.5);
     }
 }
