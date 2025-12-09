@@ -3,11 +3,41 @@ import { motion } from 'framer-motion';
 import './AnimatedBackground.css';
 
 const AnimatedBackground = () => {
-    // ロゴ内に3つのノードを配置
+    // ランダムな移動パスを生成
+    const generateRandomPath = () => {
+        const points = 5;
+        return Array.from({ length: points }, () => ({
+            x: (Math.random() - 0.5) * 80, // -40 to 40
+            y: (Math.random() - 0.5) * 80  // -40 to 40
+        }));
+    };
+
+    // ロゴ内に3つのノードを配置（各々ランダムな動きパス）
     const nodes = [
-        { id: 0, x: 20, y: 30, delay: 0, duration: 0.5 },
-        { id: 1, x: 50, y: 50, delay: 0.15, duration: 0.6 },
-        { id: 2, x: 75, y: 35, delay: 0.3, duration: 0.55 }
+        {
+            id: 0,
+            x: 20,
+            y: 30,
+            delay: 0,
+            duration: 0.5,
+            path: generateRandomPath()
+        },
+        {
+            id: 1,
+            x: 50,
+            y: 50,
+            delay: 0.15,
+            duration: 0.6,
+            path: generateRandomPath()
+        },
+        {
+            id: 2,
+            x: 75,
+            y: 35,
+            delay: 0.3,
+            duration: 0.55,
+            path: generateRandomPath()
+        }
     ];
 
     return (
@@ -49,29 +79,34 @@ const AnimatedBackground = () => {
                 }}
             />
 
-            {/* 動くノード（3つ、大きく速い動き） */}
-            {nodes.map(node => (
-                <motion.div
-                    key={node.id}
-                    className="network-node"
-                    style={{
-                        left: `${node.x}%`,
-                        top: `${node.y}%`
-                    }}
-                    animate={{
-                        x: [0, 40, -30, 25, 0],
-                        y: [0, -35, 40, -25, 0],
-                        opacity: [0.6, 1, 0.7, 0.9, 0.6],
-                        scale: [1, 1.8, 0.6, 1.5, 1]
-                    }}
-                    transition={{
-                        duration: node.duration,
-                        delay: node.delay,
-                        repeat: Infinity,
-                        ease: "linear"
-                    }}
-                />
-            ))}
+            {/* 動くノード（3つ、ランダムな多方向の動き） */}
+            {nodes.map(node => {
+                const xPath = [0, ...node.path.map(p => p.x), 0];
+                const yPath = [0, ...node.path.map(p => p.y), 0];
+
+                return (
+                    <motion.div
+                        key={node.id}
+                        className="network-node"
+                        style={{
+                            left: `${node.x}%`,
+                            top: `${node.y}%`
+                        }}
+                        animate={{
+                            x: xPath,
+                            y: yPath,
+                            opacity: [0.6, 1, 0.7, 0.9, 0.8, 0.6],
+                            scale: [1, 1.8, 0.6, 1.5, 1.2, 1]
+                        }}
+                        transition={{
+                            duration: node.duration,
+                            delay: node.delay,
+                            repeat: Infinity,
+                            ease: "linear"
+                        }}
+                    />
+                );
+            })}
 
             {/* 接続ライン（SVG） */}
             <svg className="network-lines" width="100%" height="100%">
