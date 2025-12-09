@@ -19,6 +19,14 @@ const Hero = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                 >
+                    <motion.img
+                        src="/images/logo.png"
+                        alt="Think Clarity Logo"
+                        className="hero-logo"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                    />
                     <span className="hero-badge">
                         スクール生徒限定モニター募集
                     </span>

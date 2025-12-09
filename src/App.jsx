@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from './components/Header';
 import Hero from './components/Hero';
 import Problem from './components/Problem';
 import Solution from './components/Solution';
@@ -12,6 +13,7 @@ import Offer from './components/Offer';
 function App() {
   return (
     <div className="app">
+      <Header />
       <main>
         <Hero />
         <Problem />

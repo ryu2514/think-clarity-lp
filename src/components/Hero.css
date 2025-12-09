@@ -50,6 +50,19 @@
     text-align: center;
 }
 
+.hero-logo {
+    width: 200px;
+    height: auto;
+    margin: 0 auto 2rem;
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .hero-logo {
+        width: 280px;
+    }
+}
+
 .hero-badge {
     display: inline-block;
     padding: 0.25rem 0.75rem;
