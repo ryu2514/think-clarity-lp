@@ -54,13 +54,14 @@
     position: relative;
     width: 240px;
     height: 240px;
-    margin: 0 auto 2rem;
+    margin: -2rem auto 1rem;
 }
 
 @media (min-width: 768px) {
     .logo-container {
         width: 350px;
         height: 350px;
+        margin: -3rem auto 1.5rem;
     }
 }
 
