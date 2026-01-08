@@ -43,9 +43,6 @@ const Hero = () => {
                             }}
                         />
                     </div>
-                    <span className="hero-badge">
-                        スクール生徒限定モニター募集
-                    </span>
                     <motion.h1
                         className="hero-title"
                         initial={{
