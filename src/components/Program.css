@@ -58,6 +58,40 @@
     line-height: 1.7;
 }
 
+/* Support Showcase */
+.support-showcase {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.support-block {
+    text-align: center;
+}
+
+.support-heading {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    margin-bottom: 0.5rem;
+}
+
+.support-text {
+    color: var(--color-text-sub);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+.support-block .laptop-mockup {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.support-block .support-phone {
+    margin: 0 auto;
+}
+
 /* Mockup Layout */
 .mockup-row {
     display: flex;

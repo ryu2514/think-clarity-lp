@@ -34,53 +34,35 @@ const Program = () => {
                     <p className="section-desc">結果を出すための、徹底的なサポート環境</p>
                 </div>
 
-                <div className="mockup-row">
-                    <div className="laptop-mockup">
-                        <div className="laptop-screen">
-                            <img
-                                src="/images/zoom-app-screenshot.png"
-                                alt="Zoom個別指導の実際の画面"
-                                className="laptop-screenshot"
-                            />
+                <div className="support-showcase">
+                    <div className="support-block">
+                        <h3 className="support-heading">個別サポートはこんな感じでやっています</h3>
+                        <p className="support-text">週1回のZoomで、あなたの症例をマンツーマンで深堀りします。</p>
+                        <div className="laptop-mockup">
+                            <div className="laptop-screen">
+                                <img
+                                    src="/images/zoom-app-screenshot.png"
+                                    alt="Zoom個別指導の実際の画面"
+                                    className="laptop-screenshot"
+                                />
+                            </div>
+                            <div className="laptop-base" />
                         </div>
-                        <div className="laptop-base" />
-                        <p className="mockup-label">Zoom個別指導</p>
                     </div>
-                    <div className="laptop-mockup">
-                        <div className="laptop-screen">
-                            <img
-                                src="/images/app-desktop-screenshot.png"
-                                alt="臨床推論アプリのPC画面"
-                                className="laptop-screenshot"
-                            />
-                        </div>
-                        <div className="laptop-base" />
-                        <p className="mockup-label">臨床推論アプリ（PC）</p>
-                    </div>
-                </div>
 
-                <div className="mockup-row mockup-row-phones">
-                    <div className="phone-mockup">
-                        <div className="phone-notch" />
-                        <div className="phone-screen">
-                            <img
-                                src="/images/discord-screenshot.jpg"
-                                alt="Discordチャットサポートの実際の画面"
-                                className="phone-screenshot"
-                            />
+                    <div className="support-block">
+                        <h3 className="support-heading">チャットサポートを行っています</h3>
+                        <p className="support-text">Discordでいつでも質問OK。臨床での迷いをすぐに解消できます。</p>
+                        <div className="phone-mockup support-phone">
+                            <div className="phone-notch" />
+                            <div className="phone-screen">
+                                <img
+                                    src="/images/discord-screenshot.jpg"
+                                    alt="Discordチャットサポートの実際の画面"
+                                    className="phone-screenshot"
+                                />
+                            </div>
                         </div>
-                        <p className="mockup-label">Discordサポート</p>
-                    </div>
-                    <div className="phone-mockup">
-                        <div className="phone-notch" />
-                        <div className="phone-screen">
-                            <img
-                                src="/images/app-mobile-screenshot.jpg"
-                                alt="臨床推論アプリのスマホ画面"
-                                className="phone-screenshot"
-                            />
-                        </div>
-                        <p className="mockup-label">臨床推論アプリ（スマホ）</p>
                     </div>
                 </div>
 

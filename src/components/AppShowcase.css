@@ -1,0 +1,21 @@
+.app-showcase-section {
+    background-color: var(--color-bg);
+}
+
+.showcase-devices {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.showcase-devices .laptop-mockup {
+    max-width: 560px;
+    flex: 1;
+    min-width: 280px;
+}
+
+.showcase-devices .phone-mockup {
+    width: 220px;
+}
