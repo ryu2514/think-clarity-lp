@@ -9,29 +9,29 @@ const Offer = () => {
         {
             id: 'oneTime',
             name: '一括払い',
-            price: '50,000',
+            price: '70,000',
             perMonth: null,
-            total: '50,000',
+            total: '70,000',
             badge: 'おすすめ',
-            stripeLink: 'https://buy.stripe.com/9B64gz8Wf4uM4970Tm1gs08'
+            stripeLink: 'https://buy.stripe.com/8x2aEX1tN6CU8pn1Xq1gs0d'
         },
         {
-            id: 'threeTime',
-            name: '3回払い',
-            price: '17,000',
+            id: 'twoTime',
+            name: '2回払い',
+            price: '35,000',
             perMonth: '/ 月',
-            total: '51,000',
+            total: '70,000',
             badge: null,
-            stripeLink: 'https://buy.stripe.com/00w14ngoH8L2bBz6dG1gs09'
+            stripeLink: 'https://buy.stripe.com/8x24gz2xR1iAdJH9pS1gs0e'
         },
         {
             id: 'fiveTime',
             name: '5回払い',
-            price: '10,000',
+            price: '14,000',
             perMonth: '/ 月',
-            total: '50,000',
+            total: '70,000',
             badge: null,
-            stripeLink: 'https://buy.stripe.com/dRmeVd0pJ0ew35331u1gs0a'
+            stripeLink: 'https://buy.stripe.com/7sY00j6O72mEfRPeKc1gs0f'
         }
     ];
 
@@ -44,13 +44,13 @@ const Offer = () => {
                     <div className="offer-header">
                         <span className="offer-badge">特別モニター</span>
                         <h2 className="offer-title">特別オファー</h2>
-                        <p className="offer-subtitle">3〜5名限定。定員に達し次第終了します。</p>
+                        <p className="offer-subtitle">最大5名限定。定員に達し次第終了します。</p>
                     </div>
 
                     <div className="pricing-card">
                         <div className="price-header">
                             <p className="regular-price">通常価格 198,000円</p>
-                            <span className="discount-tag">約75%OFF</span>
+                            <span className="discount-tag">約65%OFF</span>
                         </div>
 
                         {/* Payment Plan Selector */}
@@ -87,9 +87,10 @@ const Offer = () => {
                         <div className="price-benefits">
                             <h4 className="benefits-title">モニター参加特典</h4>
                             <ul className="benefits-list">
-                                <li><Check size={20} className="check-icon" /> 148,000円割引</li>
+                                <li><Check size={20} className="check-icon" /> 128,000円割引</li>
+                                <li><Check size={20} className="check-icon" /> 効果がなければ全額返金保証</li>
+                                <li><Check size={20} className="check-icon" /> 期間延長サポート</li>
                                 <li><Check size={20} className="check-icon" /> 優先サポート権</li>
-                                <li><Check size={20} className="check-icon" /> プログラム期間延長オプション</li>
                                 <li><Check size={20} className="check-icon" /> 実績としての掲載（匿名可）</li>
                             </ul>
                         </div>
