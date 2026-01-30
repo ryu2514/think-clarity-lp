@@ -36,8 +36,6 @@ const Program = () => {
 
                 <div className="support-showcase">
                     <div className="support-block">
-                        <h3 className="support-heading">個別サポートはこんな感じでやっています</h3>
-                        <p className="support-text">週1回のZoomで、あなたの症例をマンツーマンで深堀りします。</p>
                         <div className="laptop-mockup">
                             <div className="laptop-screen">
                                 <img
