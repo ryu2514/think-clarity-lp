@@ -11,7 +11,7 @@ const Solution = () => {
                     <span className="section-tag">解決策</span>
                     <h2 className="section-title">
                         センターピンは<br />
-                        <span className="text-primary">「病態分類 × 反証設計」</span>にある。
+                        <span className="text-primary">「病態分類 × 消去プロセス × 言語化」</span>にある。
                     </h2>
                     <p className="section-desc">
                         「何をやるか」より先に、<br className="mobile-break" />
@@ -52,8 +52,20 @@ const Solution = () => {
                         <div className="step-icon">
                             <ShieldOff size={32} />
                         </div>
-                        <h3 className="step-title">反証設計</h3>
+                        <h3 className="step-title">消去プロセス</h3>
                         <p className="step-desc">その型を潰す質問・テストを先に用意する</p>
+                    </div>
+
+                    <ArrowDown className="diagram-arrow" />
+
+                    <ArrowDown className="diagram-arrow" />
+
+                    <div className="diagram-step method">
+                        <div className="step-icon">
+                            <Layers size={32} />
+                        </div>
+                        <h3 className="step-title">言語化</h3>
+                        <p className="step-desc">思考プロセスを言葉と図にし、再現性と伝達力を得る</p>
                     </div>
 
                     <ArrowDown className="diagram-arrow" />
@@ -67,7 +79,7 @@ const Solution = () => {
                             </div>
                             <div className="ability-item">
                                 <span className="ability-num">02</span>
-                                <span>反証で絞れる</span>
+                                <span>消去で絞れる</span>
                             </div>
                             <div className="ability-item">
                                 <span className="ability-num">03</span>
