@@ -1,5 +1,4 @@
 import React from 'react';
-import { Layers, ShieldOff, MessageSquareText } from 'lucide-react';
 import './Solution.css';
 
 const Solution = () => {
@@ -12,45 +11,14 @@ const Solution = () => {
                         Think Clarityの<br />
                         <span className="text-primary">3ステップ</span>
                     </h2>
-                    <p className="section-desc">
-                        「何をやるか」より先に、<br className="mobile-break" />
-                        <strong>"何をやらないか"を決められるのが強み。</strong>
-                    </p>
                 </div>
 
-                <div className="solution-steps">
-                    <div className="solution-step-card">
-                        <span className="step-number">1</span>
-                        <div className="step-icon">
-                            <Layers size={28} />
-                        </div>
-                        <h3 className="step-title">病態分類</h3>
-                        <p className="step-desc">同じ症状でも「壊れている要素」を型に落とす</p>
-                        <div className="step-categories">
-                            <span className="step-cat">A 構造ストレス</span>
-                            <span className="step-cat">B 配分エラー</span>
-                            <span className="step-cat">C 防御</span>
-                            <span className="step-cat">D 神経性</span>
-                        </div>
-                    </div>
-
-                    <div className="solution-step-card">
-                        <span className="step-number">2</span>
-                        <div className="step-icon">
-                            <ShieldOff size={28} />
-                        </div>
-                        <h3 className="step-title">消去プロセス</h3>
-                        <p className="step-desc">その型を潰す質問・テストを先に用意する</p>
-                    </div>
-
-                    <div className="solution-step-card">
-                        <span className="step-number">3</span>
-                        <div className="step-icon">
-                            <MessageSquareText size={28} />
-                        </div>
-                        <h3 className="step-title">言語化</h3>
-                        <p className="step-desc">思考プロセスを言葉と図にし、再現性と伝達力を得る</p>
-                    </div>
+                <div className="solution-steps-image">
+                    <img
+                        src="/3steps.jpg"
+                        alt="Think Clarityの3ステップ：病態分類 × 消去プロセス × 言語化"
+                        className="steps-image"
+                    />
                 </div>
 
                 <div className="solution-outcome">
