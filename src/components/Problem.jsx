@@ -1,5 +1,5 @@
 import React from 'react';
-import { HelpCircle, AlertTriangle, BookOpen } from 'lucide-react';
+import { Zap, RefreshCw, SearchCheck } from 'lucide-react';
 import './Problem.css';
 
 const Problem = () => {
@@ -14,42 +14,42 @@ const Problem = () => {
                 <div className="problem-grid">
                     <div className="problem-card">
                         <div className="problem-icon-wrapper">
-                            <HelpCircle className="problem-icon" />
+                            <Zap className="problem-icon" />
                         </div>
-                        <h3 className="problem-card-title">説明できない</h3>
+                        <h3 className="problem-card-title">症状→即エクササイズ</h3>
                         <p className="problem-card-text">
-                            「なぜその運動を選んだの？」と聞かれても、<br />
-                            「なんとなく...」としか答えられない。
+                            痛みを聞いた瞬間、すぐ種目を選んでしまう。<br />
+                            臨床推論が抜け落ちている。
                         </p>
                     </div>
 
                     <div className="problem-card">
                         <div className="problem-icon-wrapper">
-                            <AlertTriangle className="problem-icon" />
+                            <RefreshCw className="problem-icon" />
                         </div>
-                        <h3 className="problem-card-title">感覚頼り</h3>
+                        <h3 className="problem-card-title">いつものメニュー</h3>
                         <p className="problem-card-text">
-                            治療がうまくいっても、なぜ良くなったのか<br />
-                            論理的に説明できないから再現性がない。
+                            誰に対しても同じ流れ。<br />
+                            うまくいっても再現性がない。
                         </p>
                     </div>
 
                     <div className="problem-card">
                         <div className="problem-icon-wrapper">
-                            <BookOpen className="problem-icon" />
+                            <SearchCheck className="problem-icon" />
                         </div>
-                        <h3 className="problem-card-title">指導の壁</h3>
+                        <h3 className="problem-card-title">評価が"当てにいく"</h3>
                         <p className="problem-card-text">
-                            後輩に教えようとしても、<br />
-                            体系立てて伝えることができずモヤモヤする。
+                            自分の仮説を裏付ける情報ばかり集めてしまう。<br />
+                            確証バイアスに気づけない。
                         </p>
                     </div>
                 </div>
 
                 <div className="problem-summary">
                     <p className="problem-summary-text">
-                        その原因は、<br className="mobile-break" />
-                        <span className="text-highlight-red">「臨床思考の言語化」</span>ができていないからかもしれません。
+                        運動療法の失敗は、<br className="mobile-break" />
+                        <span className="text-highlight-red">種目の間違いではなく「臨床推論の欠落」</span>で起きる。
                     </p>
                 </div>
             </div>

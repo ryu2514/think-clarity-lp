@@ -42,7 +42,7 @@ const Offer = () => {
             <div className="container">
                 <div className="offer-container">
                     <div className="offer-header">
-                        <span className="offer-badge">スクール生限定・特別モニター</span>
+                        <span className="offer-badge">特別モニター</span>
                         <h2 className="offer-title">特別オファー</h2>
                         <p className="offer-subtitle">3〜5名限定。定員に達し次第終了します。</p>
                     </div>

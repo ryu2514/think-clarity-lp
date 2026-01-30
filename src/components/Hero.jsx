@@ -59,9 +59,9 @@ const Hero = () => {
                             ease: [0.25, 0.1, 0.25, 1]
                         }}
                     >
-                        臨床推論を<br />
+                        「その運動、<br />
                         <span className="text-gradient">
-                            構造化する
+                            なんとなく選んでない？」
                         </span>
                     </motion.h1>
                     <motion.p
@@ -80,7 +80,7 @@ const Hero = () => {
                             ease: [0.25, 0.1, 0.25, 1]
                         }}
                     >
-                        運動療法の臨床推論を構造化し、クリアにする
+                        運動療法を迷わず組み立てるフレームワーク
                     </motion.p>
                     <motion.p
                         className="hero-description"
@@ -98,9 +98,9 @@ const Hero = () => {
                             ease: [0.25, 0.1, 0.25, 1]
                         }}
                     >
-                        「分かってるけど、説明できない」を卒業する。<br />
-                        3ヶ月で<strong className="text-highlight">言語化能力</strong>を獲得し、
-                        自分だけの運動療法スタイルを確立する個別指導プログラム。
+                        運動療法 = 臨床推論 ×（病態分類 × 反証設計）。<br />
+                        「何をやるか」より先に<strong className="text-highlight">"何をやらないか"</strong>を決められる思考を、
+                        3ヶ月で身につける。
                     </motion.p>
 
                     <div className="hero-actions">

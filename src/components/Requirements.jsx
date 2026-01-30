@@ -1,5 +1,5 @@
 import React from 'react';
-import { AlertCircle, Calendar, Users, ClipboardCheck } from 'lucide-react';
+import { AlertCircle, Users, ClipboardCheck } from 'lucide-react';
 import './Requirements.css';
 
 const Requirements = () => {
@@ -22,16 +22,6 @@ const Requirements = () => {
                                 <p className="req-value">先着5名</p>
                             </div>
                         </div>
-
-                        <div className="req-item">
-                            <div className="req-icon-wrapper">
-                                <Calendar size={24} />
-                            </div>
-                            <div className="req-content">
-                                <h3 className="req-label">期間</h3>
-                                <p className="req-value">12月中旬 〜 3ヶ月間</p>
-                            </div>
-                        </div>
                     </div>
 
                     <div className="req-list-container">
@@ -40,7 +30,6 @@ const Requirements = () => {
                             応募条件
                         </h3>
                         <ul className="req-list">
-                            <li>スクール会員であること</li>
                             <li>3ヶ月間、プログラムにコミットできる方</li>
                             <li>週1回の症例入力（アウトプット）ができる方</li>
                             <li>週1回の個別Zoom指導に必ず参加できる方</li>
