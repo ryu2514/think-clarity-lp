@@ -31,7 +31,7 @@ function App() {
       <footer className="py-8 bg-white border-t border-gray-100 text-center text-sm text-gray-400">
         <div className="container">
           <p>&copy; {new Date().getFullYear()} Think Clarity</p>
-          <p className="mt-2">小林リュージュ</p>
+          <p className="mt-2">小林 龍樹</p>
         </div>
       </footer>
     </div>

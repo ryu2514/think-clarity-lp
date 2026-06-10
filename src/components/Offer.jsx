@@ -1,114 +1,89 @@
-import React, { useState } from 'react';
-import { Check } from 'lucide-react';
+import React from 'react';
+import { ArrowRight, Check, MessageCircle } from 'lucide-react';
 import './Offer.css';
 
+const CONSULTATION_URL = 'https://booking-site-lime.vercel.app/';
+const LINE_URL = 'https://lin.ee/lE1HTYE';
+
 const Offer = () => {
-    const [selectedPlan, setSelectedPlan] = useState('oneTime');
-
-    const plans = [
-        {
-            id: 'oneTime',
-            name: '一括払い',
-            price: '70,000',
-            perMonth: null,
-            total: '70,000',
-            badge: 'おすすめ',
-            stripeLink: 'https://buy.stripe.com/8x2aEX1tN6CU8pn1Xq1gs0d'
-        },
-        {
-            id: 'twoTime',
-            name: '2回払い',
-            price: '35,000',
-            perMonth: '/ 月',
-            total: '70,000',
-            badge: null,
-            stripeLink: 'https://buy.stripe.com/8x24gz2xR1iAdJH9pS1gs0e'
-        },
-        {
-            id: 'fiveTime',
-            name: '5回払い',
-            price: '14,000',
-            perMonth: '/ 月',
-            total: '70,000',
-            badge: null,
-            stripeLink: 'https://buy.stripe.com/7sY00j6O72mEfRPeKc1gs0f'
-        }
-    ];
-
-    const currentPlan = plans.find(p => p.id === selectedPlan);
-
     return (
         <section id="offer" className="offer-section section-padding">
             <div className="container">
                 <div className="offer-container">
                     <div className="offer-header">
-                        <span className="offer-badge">特別モニター</span>
-                        <h2 className="offer-title">特別オファー</h2>
-                        <p className="offer-subtitle">最大5名限定。定員に達し次第終了します。</p>
+                        <span className="offer-badge">相談制でご案内</span>
+                        <h2 className="offer-title">受講案内は無料個別相談で行います</h2>
+                        <p className="offer-subtitle">
+                            このLPはThink Clarityの考え方と内容を知ってもらうためのページです。<br />
+                            受講受付は公式LINE、または無料個別相談時のみ行っています。
+                        </p>
                     </div>
 
-                    <div className="pricing-card">
+                    <div className="pricing-card access-card">
                         <div className="price-header">
-                            <p className="regular-price">通常価格 198,000円</p>
-                            <span className="discount-tag">約65%OFF</span>
-                        </div>
-
-                        {/* Payment Plan Selector */}
-                        <div className="plan-selector">
-                            {plans.map(plan => (
-                                <button
-                                    key={plan.id}
-                                    className={`plan-option ${selectedPlan === plan.id ? 'active' : ''}`}
-                                    onClick={() => setSelectedPlan(plan.id)}
-                                >
-                                    {plan.badge && <span className="plan-badge">{plan.badge}</span>}
-                                    <span className="plan-name">{plan.name}</span>
-                                    <span className="plan-price">
-                                        ¥{plan.price}
-                                        {plan.perMonth && <span className="plan-per-month">{plan.perMonth}</span>}
-                                    </span>
-                                </button>
-                            ))}
-                        </div>
-
-                        {/* Selected Plan Display */}
-                        <div className="selected-plan-display">
-                            <p className="special-price">
-                                <span className="currency">¥</span>
-                                {currentPlan.price}
-                                {currentPlan.perMonth && <span className="per-month">{currentPlan.perMonth}</span>}
-                                <span className="tax">（税込）</span>
+                            <p className="offer-policy-label">公開LPでは直接申し込みできません</p>
+                            <h3 className="access-title">まずは症例の迷いを一緒に整理します</h3>
+                            <p className="access-text">
+                                相談では、今の臨床で詰まっているポイントを確認し、Think Clarityが合うかどうかを一緒に判断します。
+                                その上で必要な方にのみ、詳しい受講条件をご案内します。
                             </p>
-                            {currentPlan.perMonth && (
-                                <p className="total-note">総額: ¥{currentPlan.total}</p>
-                            )}
                         </div>
 
                         <div className="price-benefits">
-                            <h4 className="benefits-title">モニター参加特典</h4>
+                            <h4 className="benefits-title">無料相談で確認できること</h4>
                             <ul className="benefits-list">
-                                <li><Check size={20} className="check-icon" /> 128,000円割引</li>
-                                <li><Check size={20} className="check-icon" /> 効果がなければ全額返金保証</li>
-                                <li><Check size={20} className="check-icon" /> 期間延長サポート</li>
-                                <li><Check size={20} className="check-icon" /> 優先サポート権</li>
-                                <li><Check size={20} className="check-icon" /> 実績としての掲載（匿名可）</li>
+                                <li><Check size={20} className="check-icon" /> 最近迷った症例の整理</li>
+                                <li><Check size={20} className="check-icon" /> 評価から介入につなげる優先順位</li>
+                                <li><Check size={20} className="check-icon" /> Think Clarityが合うケース・合わないケース</li>
+                                <li><Check size={20} className="check-icon" /> あなたに必要な学習ルート</li>
                             </ul>
+                        </div>
+
+                        <div className="application-flow">
+                            <div className="flow-step">
+                                <span className="flow-number">1</span>
+                                <div>
+                                    <h4>LPで内容を確認</h4>
+                                    <p>プログラムの考え方とサポート内容を確認してください。</p>
+                                </div>
+                            </div>
+                            <div className="flow-step">
+                                <span className="flow-number">2</span>
+                                <div>
+                                    <h4>無料個別相談を予約</h4>
+                                    <p>現在の臨床課題をもとに、必要なサポートを一緒に整理します。</p>
+                                </div>
+                            </div>
+                            <div className="flow-step">
+                                <span className="flow-number">3</span>
+                                <div>
+                                    <h4>必要な方にだけ個別案内</h4>
+                                    <p>受講条件や受付方法は、公式LINEまたは相談時にのみご案内します。</p>
+                                </div>
+                            </div>
                         </div>
 
                         <div className="cta-wrapper">
                             <a
-                                href={currentPlan.stripeLink}
+                                href={CONSULTATION_URL}
                                 className="btn btn-primary btn-large btn-glow"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                {currentPlan.name}で申し込む
+                                無料個別相談を予約する
+                                <ArrowRight className="btn-icon" />
+                            </a>
+                            <a
+                                href={LINE_URL}
+                                className="btn btn-secondary btn-large line-cta"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <MessageCircle className="btn-icon-left" />
+                                公式LINEで相談する
                             </a>
                             <p className="cta-note">
-                                ※決済はStripeを通じて安全に処理されます
-                            </p>
-                            <p className="cta-urgency">
-                                ⚠️ この機会を逃すと、次回は通常価格（198,000円）でのご案内となります
+                                受講受付は、公式LINEまたは無料個別相談での確認後のみ行っています。
                             </p>
                         </div>
                     </div>

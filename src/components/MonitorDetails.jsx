@@ -7,11 +7,11 @@ const MonitorDetails = () => {
         <section className="monitor-details-section section-padding">
             <div className="container">
                 <div className="text-center mb-16">
-                    <span className="section-tag">CO-CREATION</span>
-                    <h2 className="section-title">モニターとしてのご協力内容</h2>
+                    <span className="section-tag">伴走サポート</span>
+                    <h2 className="section-title">伴走で扱うこと</h2>
                     <p className="section-desc">
-                        このプログラムは、皆さんと共に創り上げるものです。<br />
-                        「共同開発者」として、以下の点にご協力をお願いします。
+                        Think Clarityでは、知識を増やすだけでなく、<br />
+                        臨床で迷った場面を言語化し、次の判断につなげることを重視します。
                     </p>
                 </div>
 
@@ -20,10 +20,9 @@ const MonitorDetails = () => {
                         <div className="detail-icon-box">
                             <Layout />
                         </div>
-                        <h3 className="detail-title">ツールのフィードバック</h3>
+                        <h3 className="detail-title">臨床推論アプリ</h3>
                         <p className="detail-text">
-                            提供する「臨床推論アプリ」や各種テンプレートの使い勝手について、
-                            率直な感想や改善点を教えてください。
+                            症例情報を整理しながら、評価・仮説・介入のつながりを見える化します。
                         </p>
                     </div>
 
@@ -31,10 +30,9 @@ const MonitorDetails = () => {
                         <div className="detail-icon-box">
                             <MessageSquare />
                         </div>
-                        <h3 className="detail-title">プログラムの改善提案</h3>
+                        <h3 className="detail-title">思考の言語化</h3>
                         <p className="detail-text">
-                            「もっとこうしてほしい」「ここが分かりにくい」など、
-                            受講生目線での改善アイデアを歓迎します。
+                            「なぜその運動を選ぶのか」を説明できるように、判断の根拠を一緒に整理します。
                         </p>
                     </div>
 
@@ -42,10 +40,9 @@ const MonitorDetails = () => {
                         <div className="detail-icon-box">
                             <TrendingUp />
                         </div>
-                        <h3 className="detail-title">実績公開へのご協力</h3>
+                        <h3 className="detail-title">学習ルート設計</h3>
                         <p className="detail-text">
-                            プログラム前後の変化（Before/After）を、
-                            今後の募集時の事例として使用させてください（匿名・顔出し無し可）。
+                            今の課題に対して、どのテーマから学ぶべきかを具体的に組み立てます。
                         </p>
                     </div>
                 </div>

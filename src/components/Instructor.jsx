@@ -21,15 +21,23 @@ const Instructor = () => {
 
                     <div className="instructor-info">
                         <h3 className="instructor-name">小林 龍樹</h3>
-                        <p className="instructor-title">理学療法士 / Exthera-School 主宰</p>
+                        <p className="instructor-title">理学療法士 / Think Clarity・Exthera-School 主宰</p>
 
                         <p className="instructor-bio">
                             臨床1年目での運動療法の挫折経験から事業を創業。<br />
-                            「過去の自分と同じように運動療法に悩むセラピストを支援したい」という理念のもと、
-                            若手セラピストの成長を支援している。
+                            「分かる」で止まらず<strong>「説明できる」</strong>へ引き上げることをセンターピンに、
+                            臨床推論を言語化するメソッドで、経験3〜7年の若手セラピストを個別伴走で支援している。
                         </p>
 
                         <div className="instructor-stats">
+                            <div className="stat-item">
+                                <BookOpen size={20} className="stat-icon" />
+                                <span>臨床推論を言語化するメソッド</span>
+                            </div>
+                            <div className="stat-item">
+                                <Award size={20} className="stat-icon" />
+                                <span>若手セラピストを個別伴走</span>
+                            </div>
                             <div className="stat-item">
                                 <Users size={20} className="stat-icon" />
                                 <span>スクール会員150名超</span>
